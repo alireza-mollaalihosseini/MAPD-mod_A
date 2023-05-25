@@ -4,9 +4,9 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity DFF is
    port(
-      Q : out signed(15 downto 0);    -- output connected to the adder
-      Clk :in std_logic;              -- Clock input
-      D :in  signed(15 downto 0)      -- Data input from the MCM block.
+      Clk : in  std_logic;              -- Clock input
+      D   : in  signed(15 downto 0)     -- Data input from the MCM block.
+      Q   : out signed(15 downto 0);    -- output connected to the adder
    );
 end DFF;
 

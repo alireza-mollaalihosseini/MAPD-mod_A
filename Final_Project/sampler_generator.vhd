@@ -4,23 +4,23 @@ use ieee.numeric_std.all;
 
 entity sampler_generator is
 port (
-clk          : in std_logic;
-uart_rx      : in std_logic;
+clk          : in  std_logic;
+uart_rx      : in  std_logic;
 baudrate_out : out std_logic);
 end entity sample_generator;
 
 architecture str of sampler_generator is
 
-type state_type is (idle_s, start_s, rx0_s, rx1_s, rx2_s, rx3_s, rx4_s, rx5_s, rx6_s, rx7_s, stop_s);
-signal state : state_type := idle_s ;
-signal counter        : unsigned(10 downto 0) := (others => '0');
-signal delay_counter  : unsigned(10 downto 0) := (others => '0');
-constant divisor      : unsigned(10 downto 0) := to_unsigned(867, 11);
-constant half_divisor : unsigned(10 downto 0) := to_unsigned(433, 11);
-signal busy           : std_logic             := '0';
-signal pulse_out      : std_logic;
-signal enable_counter : std_logic             := '0';
-signal enable_delay   : std_logic             := '0';
+type     state_type is (idle_s, start_s, rx0_s, rx1_s, rx2_s, rx3_s, rx4_s, rx5_s, rx6_s, rx7_s, stop_s);
+signal   state : state_type := idle_s ;
+signal   counter        : unsigned(10 downto 0) := (others => '0');
+signal 	 delay_counter  : unsigned(10 downto 0) := (others => '0');
+constant divisor        : unsigned(10 downto 0) := to_unsigned(867, 11);
+constant half_divisor   : unsigned(10 downto 0) := to_unsigned(433, 11);
+signal   busy           : std_logic             := '0';
+signal   pulse_out      : std_logic;
+signal   enable_counter : std_logic             := '0';
+signal   enable_delay   : std_logic             := '0';
 
 begin -- architecture str
 
